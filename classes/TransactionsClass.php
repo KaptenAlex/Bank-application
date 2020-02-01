@@ -1,5 +1,7 @@
 <?php
 
+require '../vendor/autoload.php';
+
 class Transactions
 {
     private $pdo;
