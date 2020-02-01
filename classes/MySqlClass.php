@@ -1,8 +1,5 @@
 <?php
 
-//namespace classes;
-
-require '../vendor/autoload.php';
 /**
  * MySQL class has 5 optional parameters (hostname, username, password, dbname, port)
  * If no parameters are set the values are retrieved from the .env file
@@ -29,25 +26,11 @@ class MySQL
         $this->dbname = $dbname ?? getenv('DB_NAME');
         $this->port = $port ?? getenv('DB_PORT');
         $this->charset = 'utf8mb4';
-
-        $options = [
-            \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_EMULATE_PREPARES   => false,
-        ];
-
-        try {
-            $dsn = "mysql:host=$this->hostname;port=$this->port;dbname=$this->dbname;charset=$this->charset";
-            $pdo = new \PDO($dsn, $this->username, $this->password, $options);
-            return $pdo;
-        } catch (\PDOException $e) {
-            echo 'Connection failed: ' . $e->getMessage();
-        }
     }
+
     /**
      * Returns a PDO
      */
-     /*
     public function connect()
     {
         $options = [
@@ -59,18 +42,9 @@ class MySQL
         try {
             $dsn = "mysql:host=$this->hostname;port=$this->port;dbname=$this->dbname;charset=$this->charset";
             $pdo = new \PDO($dsn, $this->username, $this->password, $options);
-            echo "hej";
             return $pdo;
         } catch (\PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
-    */
 }
-
-//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-//$dotenv->load();
-//
-//$test = new MySQL();
-
-//$test->connect();
