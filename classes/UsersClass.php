@@ -14,9 +14,11 @@ class Users
     public function getAllUsers()
     {
         $sql = "SELECT * FROM users";
-        foreach ($this->db->query($sql) as $key => $value) {
-            print_r($value);
-        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        echo "HERE YOU GO!" . PHP_EOL;
+        return $results;
     }
     public function getUser($id)
     {
@@ -35,5 +37,5 @@ $dotenv->load();
 $mySQL = new MySQL();
 $users = new Users($mySQL);
 
-//$results = $users->getAllUsers();
-print_r($users->getUser(1));
+print_r($users->getAllUsers());
+//print_r($users->getUser(1));
