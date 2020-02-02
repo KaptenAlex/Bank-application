@@ -13,16 +13,15 @@ class Users
     }
     public function getAllUsers()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM vw_users";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $results = $stmt->fetchAll();
-        echo "HERE YOU GO!" . PHP_EOL;
         return $results;
     }
     public function getUser($id)
     {
-        $sql = "SELECT * FROM users WHERE id = :id";
+        $sql = "SELECT * FROM vw_users WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -31,11 +30,11 @@ class Users
     }
 }
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-$dotenv->load();
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+//$dotenv->load();
 
-$mySQL = new MySQL();
-$users = new Users($mySQL);
+//$mySQL = new MySQL();
+//$users = new Users($mySQL);
 
-print_r($users->getAllUsers());
+//print_r($users->getAllUsers());
 //print_r($users->getUser(1));
