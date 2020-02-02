@@ -26,7 +26,8 @@ class Users
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $result = $stmt->fetch();
-        return $result;
+        $encodeJson = json_encode($result);
+        return $encodeJson;
     }
     //public function getUserAndSetSession($id)
     //{
@@ -43,5 +44,6 @@ class Users
 //$mySQL = new MySQL();
 //$users = new Users($mySQL);
 
+//echo($users->getUser(1));
 //print_r($users->getAllUsers());
 //print_r($users->getUserAndSetSession(1));
