@@ -28,6 +28,26 @@ class Transactions
         $result = $stmt->fetch();
         return $result;
     }
+    public function makeTransaction($data)
+    {
+        //transaction_id, from_amount, from_account,
+        //from_currency, to_amount, to_account,
+        //to_currency, currency_rate, date
+        $sql = "INSERT INTO transactions(from_amount, from_account, from_currency," .
+               " to_amount, to_account, to_currency, currency_rate, date)".
+               "VALUES (:fromAmount, :from_account, :from_currency," .
+               ":to_amount, :to_account, :to_currency, :currency_rate, :date)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':from_amount', $data);
+        $stmt->bindParam(':from_account', $data);
+        $stmt->bindParam(':from_currency', $data);
+        $stmt->bindParam(':to_amount', $data);
+        $stmt->bindParam(':to_account', $data);
+        $stmt->bindParam(':to_currency', $data);
+        $stmt->bindParam(':currency_rate', $data);
+        $stmt->bindParam(':date', $data);
+        $stmt->execute();
+    }
 }
 
 //$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
