@@ -29,13 +29,6 @@ class Users
         $encodeJson = json_encode($result);
         return $encodeJson;
     }
-    //public function getUserAndSetSession($id)
-    //{
-    //    $user = $this->getUser($id);
-    //    session_start();
-    //    $_SESSION = $user;
-    //    return $_SESSION;
-    //}
 }
 
 //$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");

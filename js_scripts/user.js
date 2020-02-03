@@ -5,7 +5,11 @@ $(document).ready(function() {
         url: "http://localhost/Bank-application/api/getUserWithSession.php",
         type: 'GET',
         success: function(data) {
-            console.log(data)
+            let parsedData = JSON.parse(data);
+            console.log(parsedData);
+            $("#username").text(parsedData.username);
+            $("#name").text(parsedData.firstName + " " + parsedData.lastName);
+            $("#balance").text(parsedData.balance);
         },
         error: function(error) {
             console.log(error)

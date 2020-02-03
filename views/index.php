@@ -1,3 +1,7 @@
+<?php
+//So CORS Doesn't interfere.
+//header("Access-Control-Allow-Origin: *");
+    ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -9,6 +13,19 @@
 
 <body>
 
+<div class="container">
+    <h1 class="text-center display-3">Bank application</h1>
+<div class="row">
+<div class="col border border-dark">
+<h1>Username: <span id="username"></span></h1>
+<h1>Name: <span id="name"></span></h1>
+<h1>Balance: <span id="balance"></span></h1>
+</div>
+<div class="col border border-dark">
+
+</div>
+</div>
+</div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
