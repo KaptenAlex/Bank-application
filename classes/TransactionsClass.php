@@ -33,7 +33,7 @@ class Transactions
         $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
                to_amount, to_account, to_currency, currency_rate, date)
                VALUES (:from_amount, :from_account, :from_currency,
-               :to_amount, :to_account, :to_currency, :currency_rate, :date)";
+               :to_amount, :to_account, :to_currency, :currency_rate, NOW())";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':from_amount', $data['from_amount']);
         $stmt->bindParam(':from_account', $data['from_account']);
@@ -42,7 +42,6 @@ class Transactions
         $stmt->bindParam(':to_account', $data['to_account']);
         $stmt->bindParam(':to_currency', $data['to_currency']);
         $stmt->bindParam(':currency_rate', $data['currency_rate']);
-        $stmt->bindParam(':date', $data['date']);
         $stmt->execute();
     }
 }

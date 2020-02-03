@@ -25,21 +25,22 @@ header("Access-Control-Allow-Origin: *");
 <div class="transfer">
     <h1 class="text-center">Make a transfer</h1>
     <form id="transaction">
-        <label for="from_account"> From account</label>
-        <input id="userID" class="form-control" type="text" name="from_account" value="">
+        <label hidden for="from_account"> From account</label>
+        <input hidden id="userID" class="form-control" type="text" name="from_account" value="">
         <br>
         <label for="from_currency"> From currency</label>
-        <input class="form-control" type="text" name="from_currency" value="SEK">
+        <select class="form-control" name="from_currency">
+            <option value="SEK">SEK</option>
+        </select>
         <br>
         <label for="to_currency"> To currency</label>
-        <input class="form-control" type="text" name="to_currency" value="SEK">
+        <select class="form-control" name="to_currency">
+            <option value="SEK">SEK</option>
+        </select>
         <br>
-        <label for="currency_rate">Currency rate</label>
-        <input class="form-control" type="number" name="currency_rate" value="1.000">
-        <br>
-        <label for="date">Date</label>
-        <input id="date" class="form-control" type="text" name="date" value="">
-        <br>
+        <label hidden for="currency_rate">Currency rate</label>
+        <input hidden class="form-control" type="number" name="currency_rate" value="1.000">
+        <br hidden>
         <label for="from_amount">from amount</label>
         <input class="form-control" type="number" name="from_amount" value="500">
         <br>
