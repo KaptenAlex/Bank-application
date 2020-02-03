@@ -9,6 +9,7 @@ $(document).ready(function() {
             $("#name").text(parsedData.firstName + " " + parsedData.lastName);
             $("#balance").text(parsedData.balance);
             $("#userID").val(parsedData.id);
+            $("#date").val(Date());
         },
         error: function(error) {
             console.log(error);

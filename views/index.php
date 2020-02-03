@@ -38,7 +38,7 @@ header("Access-Control-Allow-Origin: *");
         <input class="form-control" type="number" name="currency_rate" value="1.000">
         <br>
         <label for="date">Date</label>
-        <input class="form-control" type="text" name="date" value="2020-02-03">
+        <input id="date" class="form-control" type="text" name="date" value="">
         <br>
         <label for="from_amount">from amount</label>
         <input class="form-control" type="number" name="from_amount" value="500">
