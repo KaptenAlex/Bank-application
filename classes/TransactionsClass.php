@@ -30,27 +30,20 @@ class Transactions
     }
     public function makeTransaction($data)
     {
-        //transaction_id, from_amount, from_account,
-        //from_currency, to_amount, to_account,
-        //to_currency, currency_rate, date
-
-        /*
-        $sql = "INSERT INTO transactions(from_amount, from_account, from_currency," .
-               " to_amount, to_account, to_currency, currency_rate, date)".
-               "VALUES (:fromAmount, :from_account, :from_currency," .
-               ":to_amount, :to_account, :to_currency, :currency_rate, :date)";
+        $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
+               to_amount, to_account, to_currency, currency_rate, date)
+               VALUES (:from_amount, :from_account, :from_currency,
+               :to_amount, :to_account, :to_currency, :currency_rate, :date)";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':from_amount', $data);
-        $stmt->bindParam(':from_account', $data);
-        $stmt->bindParam(':from_currency', $data);
-        $stmt->bindParam(':to_amount', $data);
-        $stmt->bindParam(':to_account', $data);
-        $stmt->bindParam(':to_currency', $data);
-        $stmt->bindParam(':currency_rate', $data);
-        $stmt->bindParam(':date', $data);
+        $stmt->bindParam(':from_amount', $data['from_amount']);
+        $stmt->bindParam(':from_account', $data['from_account']);
+        $stmt->bindParam(':from_currency', $data['from_currency']);
+        $stmt->bindParam(':to_amount', $data['to_amount']);
+        $stmt->bindParam(':to_account', $data['to_account']);
+        $stmt->bindParam(':to_currency', $data['to_currency']);
+        $stmt->bindParam(':currency_rate', $data['currency_rate']);
+        $stmt->bindParam(':date', $data['date']);
         $stmt->execute();
-        */
-        return $data;
     }
 }
 
