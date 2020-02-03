@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 //So CORS Doesn't interfere.
 header("Access-Control-Allow-Origin: *");
     ?>
@@ -21,19 +23,33 @@ header("Access-Control-Allow-Origin: *");
 <h1>Name: <span id="name"></span></h1>
 <h1>Balance: <span id="balance"></span></h1>
 <div class="transfer">
-    <h1>Make a transfer</h1>
+    <h1 class="text-center">Make a transfer</h1>
     <form id="transaction">
-        <div class="amount">
-            <label class="h1" for="transferAmount">Transfer amount</label>
-            <input class="form-control" type="number" name="transferAmount" value="">
-        </div>
+        <label for="from_account"> From account</label>
+        <input id="userID" class="form-control" type="text" name="from_account" value="">
         <br>
-        <div class="reciever">
-            <label class="h1" for="transferTo">Transfer to</label>
-            <select class="form-control" name="transferTo">
-                <option value="user 1">user 1</option>
-            </select>
-        </div>
+        <label for="from_currency"> From currency</label>
+        <input class="form-control" type="text" name="from_currency" value="SEK">
+        <br>
+        <label for="to_currency"> To currency</label>
+        <input class="form-control" type="text" name="to_currency" value="SEK">
+        <br>
+        <label for="currency_rate">Currency rate</label>
+        <input class="form-control" type="number" name="currency_rate" value="1.000">
+        <br>
+        <label for="date">Date</label>
+        <input class="form-control" type="text" name="date" value="2020-02-03">
+        <br>
+        <label for="from_amount">from amount</label>
+        <input class="form-control" type="number" name="from_amount" value="500">
+        <br>
+        <label for="to_amount">to amount</label>
+        <input class="form-control" type="number" name="to_amount" value="500">
+        <br>
+        <label for="to_account">Transfer to</label>
+        <select class="form-control" name="to_account">
+            <option value="9">Account 9</option>
+        </select>
         <br>
         <input class="btn btn-success btn-lg btn-block" type="submit" value="Transfer money">
         <br>
