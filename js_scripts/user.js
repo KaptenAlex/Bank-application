@@ -5,7 +5,6 @@ $(document).ready(function() {
         type: 'GET',
         success: function(data) {
             let parsedData = JSON.parse(data);
-            console.log(parsedData);
             $("#username").text(parsedData.username);
             $("#name").text(parsedData.firstName + " " + parsedData.lastName);
             $("#balance").text(parsedData.balance);
