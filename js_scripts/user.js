@@ -8,6 +8,7 @@ $(document).ready(function() {
             $("#username").text(parsedData.username);
             $("#name").text(parsedData.firstName + " " + parsedData.lastName);
             $("#balance").text(parsedData.balance);
+            $("#userID").val(parsedData.id);
         },
         error: function(error) {
             console.log(error);
