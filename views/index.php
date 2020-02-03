@@ -36,12 +36,15 @@
         </div>
         <br>
         <input class="btn btn-success btn-lg btn-block" type="submit" value="Transfer money">
+        <br>
     </div>
     </form>
 </div>
+<!--
 <div class="col border border-dark">
 
 </div>
+-->
 </div>
 </div>
 

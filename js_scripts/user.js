@@ -1,6 +1,5 @@
 // A $( document ).ready() block.
 $(document).ready(function() {
-    console.log("ready!");
     $.ajax({
         url: "http://localhost/Bank-application/api/getUserWithSession.php",
         type: 'GET',
@@ -12,7 +11,7 @@ $(document).ready(function() {
             $("#balance").text(parsedData.balance);
         },
         error: function(error) {
-            console.log(error)
+            console.log(error);
         },
     });
 });
