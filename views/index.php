@@ -1,6 +1,6 @@
 <?php
 //So CORS Doesn't interfere.
-//header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
     ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -22,7 +22,7 @@
 <h1>Balance: <span id="balance"></span></h1>
 <div class="transfer">
     <h1>Make a transfer</h1>
-    <form action="../js_scripts/transaction.js" method="POST" id="transaction">
+    <form id="transaction">
         <div class="amount">
             <label class="h1" for="transferAmount">Transfer amount</label>
             <input class="form-control" type="number" name="transferAmount" value="">
@@ -31,7 +31,7 @@
         <div class="reciever">
             <label class="h1" for="transferTo">Transfer to</label>
             <select class="form-control" name="transferTo">
-                <option value="">user 1</option>
+                <option value="user 1">user 1</option>
             </select>
         </div>
         <br>
@@ -53,6 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="..\js_scripts\user.js" charset="utf-8"></script>
+    <script src="..\js_scripts\transaction.js" charset="utf-8"></script>
 </body>
 
 </html>

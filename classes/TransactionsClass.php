@@ -33,6 +33,8 @@ class Transactions
         //transaction_id, from_amount, from_account,
         //from_currency, to_amount, to_account,
         //to_currency, currency_rate, date
+
+        /*
         $sql = "INSERT INTO transactions(from_amount, from_account, from_currency," .
                " to_amount, to_account, to_currency, currency_rate, date)".
                "VALUES (:fromAmount, :from_account, :from_currency," .
@@ -47,6 +49,8 @@ class Transactions
         $stmt->bindParam(':currency_rate', $data);
         $stmt->bindParam(':date', $data);
         $stmt->execute();
+        */
+        return $data;
     }
 }
 
