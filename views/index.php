@@ -20,6 +20,24 @@
 <h1>Username: <span id="username"></span></h1>
 <h1>Name: <span id="name"></span></h1>
 <h1>Balance: <span id="balance"></span></h1>
+<div class="transfer">
+    <h1>Make a transfer</h1>
+    <form action="index.html" method="post">
+        <div class="amount">
+            <label class="h1" for="transferAmount">Transfer amount</label>
+            <input class="form-control" type="number" name="transferAmount" value="">
+        </div>
+        <br>
+        <div class="reciever">
+            <label class="h1" for="transferTo">Transfer to</label>
+            <select class="form-control" name="transferTo">
+                <option value="">user 1</option>
+            </select>
+        </div>
+        <br>
+        <input class="btn btn-success btn-lg btn-block" type="submit" value="Transfer money">
+    </div>
+    </form>
 </div>
 <div class="col border border-dark">
 
