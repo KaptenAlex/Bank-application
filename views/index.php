@@ -22,7 +22,7 @@
 <h1>Balance: <span id="balance"></span></h1>
 <div class="transfer">
     <h1>Make a transfer</h1>
-    <form action="index.html" method="post">
+    <form action="../js_scripts/transaction.js" method="POST" id="transaction">
         <div class="amount">
             <label class="h1" for="transferAmount">Transfer amount</label>
             <input class="form-control" type="number" name="transferAmount" value="">
