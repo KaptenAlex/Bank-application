@@ -18,9 +18,12 @@ class Transactions
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $results = $stmt->fetchAll();
+            if ($results == false) {
+                throw new \Exception("Could not get all transactions.");
+            }
             return $results;
         } catch (\Exception $e) {
-            echo "Failed to get all transactions: " . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
     }
     public function getTransaction($id)
@@ -31,9 +34,12 @@ class Transactions
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch();
+            if ($result == false) {
+                throw new \Exception("Could not get transaction.");
+            }
             return $result;
         } catch (\Exception $e) {
-            echo "Failed to get transaction: " . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
     }
     public function makeTransaction($data)
