@@ -1,6 +1,4 @@
 <?php
-session_start();
-session_destroy();
 //So CORS Doesn't interfere.
 header("Access-Control-Allow-Origin: *");
     ?>
