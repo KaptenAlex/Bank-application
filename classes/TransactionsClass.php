@@ -13,20 +13,28 @@ class Transactions
     }
     public function getAllTransactions()
     {
-        $sql = "SELECT * FROM transactions";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        $results = $stmt->fetchAll();
-        return $results;
+        try {
+            $sql = "SELECT * FROM transactions";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll();
+            return $results;
+        } catch (\Exception $e) {
+            echo "Failed to get all transactions: " . $e->getMessage();
+        }
     }
     public function getTransaction($id)
     {
-        $sql = "SELECT * FROM transactions WHERE transaction_id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $result = $stmt->fetch();
-        return $result;
+        try {
+            $sql = "SELECT * FROM transactions WHERE transaction_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result;
+        } catch (\Exception $e) {
+            echo "Failed to get transaction: " . $e->getMessage();
+        }
     }
     public function makeTransaction($data)
     {
