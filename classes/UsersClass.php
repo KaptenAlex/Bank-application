@@ -18,10 +18,13 @@ class Users
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $results = $stmt->fetchAll();
+            if ($results == false) {
+                throw new \Exception("Could not get all users");
+            }
             $encodeJson = json_encode($results);
             return $encodeJson;
         } catch (\Exception $e) {
-            echo "Failed to get all users: " . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
     }
     public function getUser($id)
@@ -32,10 +35,13 @@ class Users
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch();
+            if ($result == false) {
+                throw new \Exception("No user with id: $id exists!");
+            }
             $encodeJson = json_encode($result);
             return $encodeJson;
         } catch (\Exception $e) {
-            echo "Failed to get user with id: $id: " . $e->getMessage();
+            echo "Failed to get user: " . $e->getMessage();
         }
     }
 }
