@@ -2,11 +2,7 @@
 
 Ni ska bygga en bankapplikation. Applikationen ska byggas med PHP, MySQL och lite JavaScript (för Ajax-delarna).
 
-* Varje användare ska ha ett konto med en egen balans. Konton och användare ska ligga i olika tabeller i databasen. Ett konto får inte ha negativ balans, dvs saldot måste alltid vara minst 0.
-
 * En överföring måste felkontrolleras, t ex att mottagaren finns, att det finns tillräckligt med pengar på avsändarens konto osv.
-
-* Om ett fel uppstår (t ex att det saknas pengar) ska ni kasta ett exception. Ni måste också kunna hantera exceptions med en try ... catch så att skriptet inte dör.
 
 VG-krav
 
@@ -43,3 +39,7 @@ public function __construct(Database $db) {
 }
 
 * Ni får inte heller låta en userklass ärva från en databasklass eller liknande. Arv ska användas för klasser som liknar varandra, inte för beroenden.
+
+* Varje användare ska ha ett konto med en egen balans. Konton och användare ska ligga i olika tabeller i databasen. Ett konto får inte ha negativ balans, dvs saldot måste alltid vara minst 0.
+
+* Om ett fel uppstår (t ex att det saknas pengar) ska ni kasta ett exception. Ni måste också kunna hantera exceptions med en try ... catch så att skriptet inte dör.
