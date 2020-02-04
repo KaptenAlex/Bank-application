@@ -1,7 +1,7 @@
 // A $( document ).ready() block.
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost/Bank-application/api/getUserWithSession.php",
+        url: "http://localhost/Bank-application/api/getUser.php",
         type: 'GET',
         success: function(user) {
             let parsedData = JSON.parse(user);
