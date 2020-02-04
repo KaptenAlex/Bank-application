@@ -17,7 +17,8 @@ class Users
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $results = $stmt->fetchAll();
-        return $results;
+        $encodeJson = json_encode($results);
+        return $encodeJson;
     }
     public function getUser($id)
     {
