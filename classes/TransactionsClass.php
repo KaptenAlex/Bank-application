@@ -45,12 +45,3 @@ class Transactions
         $stmt->execute();
     }
 }
-
-//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-//$dotenv->load();
-
-//$mySQL = new MySQL();
-//$transaction = new Transactions($mySQL);
-
-//print_r($transaction->getAllTransactions());
-//print_r($transaction->getTransaction(175));

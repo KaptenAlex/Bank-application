@@ -31,13 +31,3 @@ class Users
         return $encodeJson;
     }
 }
-
-//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-//$dotenv->load();
-
-//$mySQL = new MySQL();
-//$users = new Users($mySQL);
-
-//echo($users->getUser(1));
-//print_r($users->getAllUsers());
-//print_r($users->getUserAndSetSession(1));

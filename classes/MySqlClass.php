@@ -1,9 +1,7 @@
 <?php
-
-/**
- * MySQL class has 5 optional parameters (hostname, username, password, dbname, port)
- * If no parameters are set the values are retrieved from the .env file
- */
+/*
+    Database class
+*/
 class MySQL
 {
     private $hostname;
@@ -13,6 +11,11 @@ class MySQL
     private $port;
     private $charset;
 
+    /*
+    If no parameters are given set member variables to null,
+    If they are null, get variable from .env file and set
+    it to the member variables.
+    */
     public function __construct(
         $hostname = null,
         $username = null,
@@ -28,9 +31,14 @@ class MySQL
         $this->charset = 'utf8mb4';
     }
 
-    /**
-     * Returns a PDO
-     */
+    /*
+    Set PDO options and try to connect to Database
+    by setting the DSN(Data Source Name) and inserting
+    it into the new PDO object together with username,
+    password and options.
+    If something fails, throw a catch and
+    print out error message.
+    */
     public function connect()
     {
         $options = [

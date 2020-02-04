@@ -56,11 +56,6 @@ header("Access-Control-Allow-Origin: *");
     </div>
     </form>
 </div>
-<!--
-<div class="col border border-dark">
-
-</div>
--->
 </div>
 </div>
 

@@ -29,12 +29,3 @@ class Accounts
         return $result;
     }
 }
-
-//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-//$dotenv->load();
-
-//$mySQL = new MySQL();
-//$accounts = new Accounts($mySQL);
-
-//print_r($accounts->getAllAccounts());
-//print_r($accounts->getAccount(2));
