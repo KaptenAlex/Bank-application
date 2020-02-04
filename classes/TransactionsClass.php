@@ -78,6 +78,9 @@ class Transactions
                     if ($sendAmount <= 0) {
                         throw new \Exception("The amount sent is less or equal zero.");
                     }
+                    if ($sendAmount > (json_decode($sender)->balance)) {
+                        throw new \Exception("Balance is less than amount sent");
+                    }
                     $stmt->execute();
                 } catch (\Exception $e) {
                     echo "Transaction failed: " . $e->getMessage();
