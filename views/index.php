@@ -39,13 +39,13 @@ header("Access-Control-Allow-Origin: *");
             <label hidden for="currency_rate">Currency rate</label>
             <input hidden class="form-control" type="number" name="currency_rate" value="1.000">
             <br hidden>
-            <label for="from_amount">from amount</label>
+            <label for="from_amount">Amount to transfer</label>
             <input class="form-control" type="number" name="from_amount" value="1">
             <br>
-            <label for="to_amount">to amount</label>
-            <input class="form-control" type="number" name="to_amount" value="0">
-            <br>
-            <label for="to_account">Transfer to</label>
+            <label hidden for="to_amount">to amount</label>
+            <input hidden class="form-control" type="number" name="to_amount" value="0">
+            <br hidden>
+            <label for="to_account">Recipient</label>
             <select id="users" class="form-control" name="to_account">
             </select>
             <br>
