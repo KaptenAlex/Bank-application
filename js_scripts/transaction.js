@@ -3,7 +3,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             type: "post",
-            url: "http://localhost/Bank-application/api/transferFromToUser.php",
+            url: "http://localhost/Bank-application/api/makeTransaction.php",
             data: $("#transaction").serializeArray(),
             success: function(data) {},
             error: function(error) {
