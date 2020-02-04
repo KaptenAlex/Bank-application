@@ -15,7 +15,6 @@ $(document).ready(function() {
                 success: function(users) {
                     let parsedData = JSON.parse(users);
                     $.each(parsedData, function(key, value) {
-                        console.log(key + " " + value.firstName);
                         $("#users").append("<option value=" + value.account_id +">"
                         + value.firstName +" " + value.lastName + "</option>");
                     });

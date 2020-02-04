@@ -49,7 +49,6 @@ header("Access-Control-Allow-Origin: *");
         <br>
         <label for="to_account">Transfer to</label>
         <select id="users" class="form-control" name="to_account">
-            <option value="test">test</option>
         </select>
         <br>
         <input class="btn btn-success btn-lg btn-block" type="submit" value="Transfer money">

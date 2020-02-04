@@ -5,9 +5,7 @@ $(document).ready(function() {
             type: "post",
             url: "http://localhost/Bank-application/api/transferFromToUser.php",
             data: $("#transaction").serializeArray(),
-            success: function(data) {
-                console.log("Success!");
-            },
+            success: function(data) {},
             error: function(error) {
                 console.log(error);
             }
