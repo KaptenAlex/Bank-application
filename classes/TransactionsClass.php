@@ -45,24 +45,48 @@ class Transactions
     public function makeTransaction($data)
     {
         try {
-            $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
-                   to_amount, to_account, to_currency, currency_rate, date)
-                   VALUES (:from_amount, :from_account, :from_currency,
-                   :to_amount, :to_account, :to_currency, :currency_rate, NOW())";
-            $stmt = $this->db->prepare($sql);
-            $sendAmount = $stmt->bindParam(':from_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
-            $stmt->bindParam(':from_account', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
-            $stmt->bindParam(':from_currency', $data['from_currency'], FILTER_SANITIZE_STRING);
-            $stmt->bindParam(':to_amount', $data['to_amount'], FILTER_SANITIZE_NUMBER_INT);
-            $stmt->bindParam(':to_account', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
-            $stmt->bindParam(':to_currency', $data['to_currency'], FILTER_SANITIZE_STRING);
-            $stmt->bindParam(':currency_rate', $data['currency_rate'], FILTER_SANITIZE_NUMBER_FLOAT);
-            if ($sendAmount <= 0) {
-                throw new \Exception("The amount sent is less or equal zero.");
+            $sqlSender = "SELECT * FROM vw_users WHERE :from_account_id = account_id";
+            $statement = $this->db->prepare($sqlSender);
+            $statement->bindParam(':from_account_id', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
+            if (!($statement->execute())) {
+                throw new \Exception("Sender doesn't have an account.");
+            } elseif ($statement->execute()) {
+                $sender = $statement->fetch();
             }
-            $stmt->execute();
+            try {
+                $sqlRecipient = "SELECT * FROM users WHERE :to_account_id = id";
+                $statement = $this->db->prepare($sqlRecipient);
+                $statement->bindParam(':to_account_id', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
+                if (!($statement->execute())) {
+                    throw new \Exception("Couldn't find recipient");
+                } elseif ($statement->execute()) {
+                    $recipient = $statement->fetch();
+                }
+                try {
+                    $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
+                           to_amount, to_account, to_currency, currency_rate, date)
+                           VALUES (:from_amount, :from_account, :from_currency,
+                           :to_amount, :to_account, :to_currency, :currency_rate, NOW())";
+                    $stmt = $this->db->prepare($sql);
+                    $sendAmount = $stmt->bindParam(':from_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
+                    $stmt->bindParam(':from_account', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
+                    $stmt->bindParam(':from_currency', $data['from_currency'], FILTER_SANITIZE_STRING);
+                    $stmt->bindParam(':to_amount', $data['to_amount'], FILTER_SANITIZE_NUMBER_INT);
+                    $stmt->bindParam(':to_account', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
+                    $stmt->bindParam(':to_currency', $data['to_currency'], FILTER_SANITIZE_STRING);
+                    $stmt->bindParam(':currency_rate', $data['currency_rate'], FILTER_SANITIZE_NUMBER_FLOAT);
+                    if ($sendAmount <= 0) {
+                        throw new \Exception("The amount sent is less or equal zero.");
+                    }
+                    $stmt->execute();
+                } catch (\Exception $e) {
+                    echo "Transaction failed: " . $e->getMessage();
+                }
+            } catch (\Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
         } catch (\Exception $e) {
-            echo "Transaction failed: " . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
     }
 }
