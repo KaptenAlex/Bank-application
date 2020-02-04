@@ -8,8 +8,6 @@ Ni ska bygga en bankapplikation. Applikationen ska byggas med PHP, MySQL och lit
 
 * Om ett fel uppstår (t ex att det saknas pengar) ska ni kasta ett exception. Ni måste också kunna hantera exceptions med en try ... catch så att skriptet inte dör.
 
-* Ni får inte heller låta en userklass ärva från en databasklass eller liknande. Arv ska användas för klasser som liknar varandra, inte för beroenden.
-
 VG-krav
 
 * Klassen som hanterar överföringar ska ta emot ett typehintat interface i konstruktorn för olika betalningslösningar och låta minst två klasser implementera interfacet (t ex swish, banköverföring, betalkort).
@@ -43,3 +41,5 @@ COMPLETED LIST
 public function __construct(Database $db) {
   // ...
 }
+
+* Ni får inte heller låta en userklass ärva från en databasklass eller liknande. Arv ska användas för klasser som liknar varandra, inte för beroenden.
