@@ -23,28 +23,28 @@ header("Access-Control-Allow-Origin: *");
 <div class="transfer">
     <h1 class="text-center">Make a transfer</h1>
         <form id="transaction">
-            <label hidden for="from_account"> From account</label>
-            <input hidden id="userID" class="form-control" type="text" name="from_account" value="">
+            <label  for="from_account"> From account</label>
+            <input  id="userID" class="form-control" type="text" name="from_account" value="">
             <br>
-            <label hidden for="from_currency"> From currency</label>
-            <select hidden class="form-control" name="from_currency">
+            <label for="from_currency"> From currency</label>
+            <select class="form-control" name="from_currency">
                 <option value="SEK">SEK</option>
             </select>
             <br>
-            <label hidden for="to_currency"> To currency</label>
-            <select hidden class="form-control" name="to_currency">
+            <label for="to_currency"> To currency</label>
+            <select class="form-control" name="to_currency">
                 <option value="SEK">SEK</option>
             </select>
             <br>
-            <label hidden for="currency_rate">Currency rate</label>
-            <input hidden class="form-control" type="number" name="currency_rate" value="1.000">
-            <br hidden>
+            <label  for="currency_rate">Currency rate</label>
+            <input  class="form-control" type="number" name="currency_rate" value="1.000">
+            <br >
             <label for="from_amount">Amount to transfer</label>
             <input class="form-control" type="number" name="from_amount" value="1">
             <br>
-            <label hidden for="to_amount">to amount</label>
-            <input hidden class="form-control" type="number" name="to_amount" value="1">
-            <br hidden>
+            <label  for="to_amount">to amount</label>
+            <input  class="form-control" type="number" name="to_amount" value="1">
+            <br >
             <label for="to_account">Recipient</label>
             <select id="users" class="form-control" name="to_account">
             </select>
