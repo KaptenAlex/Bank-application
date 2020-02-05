@@ -41,16 +41,6 @@ header("Access-Control-Allow-Origin: *");
             <label hidden for="from_account"> From account</label>
             <input hidden id="userID" class="form-control" type="text" name="from_account" value="">
             <br>
-            <label hidden for="from_currency"> From currency</label>
-            <select hidden class="form-control" name="from_currency">
-                <option value="SEK">SEK</option>
-            </select>
-            <br>
-            <label hidden for="to_currency"> To currency</label>
-            <select hidden class="form-control" name="to_currency">
-                <option value="SEK">SEK</option>
-            </select>
-            <br>
             <label hidden for="currency_rate">Currency rate</label>
             <input hidden class="form-control" type="number" name="currency_rate" value="1.000">
             <br hidden>

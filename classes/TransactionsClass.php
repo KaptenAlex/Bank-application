@@ -34,20 +34,14 @@ class Transactions
                 try {
                     $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
                            to_amount, to_account, to_currency, currency_rate, date)
-                           VALUES (:from_amount, :from_account, :from_currency,
-                           :to_amount, :to_account, :to_currency, :currency_rate, NOW())";
+                           VALUES (:from_amount, :from_account, 'SEK',
+                           :to_amount, :to_account, 'SEK', :currency_rate, NOW())";
                     $stmt = $this->db->prepare($sql);
                     $stmt->bindParam(':from_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
                     $stmt->bindParam(':from_account', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
-                    $stmt->bindParam(':from_currency', $data['from_currency'], FILTER_SANITIZE_STRING);
                     $stmt->bindParam(':to_account', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
-                    $stmt->bindParam(':to_currency', $data['to_currency'], FILTER_SANITIZE_STRING);
                     $stmt->bindParam(':currency_rate', $data['currency_rate'], FILTER_SANITIZE_NUMBER_FLOAT);
-                    if ($data['from_currency'] == $data['to_currency']) {
-                        $stmt->bindParam(':to_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
-                    } else {
-                        $stmt->bindParam(':to_amount', $data['to_amount'], FILTER_SANITIZE_NUMBER_INT);
-                    }
+                    $stmt->bindParam(':to_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
                     if ($data['from_amount'] <= 0) {
                         throw new \Exception("The amount sent is less or equal zero.");
                     }
