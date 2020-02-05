@@ -2,8 +2,6 @@
 
 Ni ska bygga en bankapplikation. Applikationen ska byggas med PHP, MySQL och lite JavaScript (för Ajax-delarna).
 
-* En överföring måste felkontrolleras, t ex att mottagaren finns, att det finns tillräckligt med pengar på avsändarens konto osv.
-
 VG-krav
 
 * Klassen som hanterar överföringar ska ta emot ett typehintat interface i konstruktorn för olika betalningslösningar och låta minst två klasser implementera interfacet (t ex swish, banköverföring, betalkort).
@@ -43,3 +41,5 @@ public function __construct(Database $db) {
 * Varje användare ska ha ett konto med en egen balans. Konton och användare ska ligga i olika tabeller i databasen. Ett konto får inte ha negativ balans, dvs saldot måste alltid vara minst 0.
 
 * Om ett fel uppstår (t ex att det saknas pengar) ska ni kasta ett exception. Ni måste också kunna hantera exceptions med en try ... catch så att skriptet inte dör.
+
+* En överföring måste felkontrolleras, t ex att mottagaren finns, att det finns tillräckligt med pengar på avsändarens konto osv.
