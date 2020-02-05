@@ -44,7 +44,7 @@ class Transactions
                     if ($data['from_amount'] <= 0) {
                         throw new \Exception("The amount sent is less or equal zero.");
                     }
-                    if ($data['from_amount'] > $sender['balance']) {
+                    if (floatval($data['from_amount']) > floatval($sender['balance'])) {
                         throw new \Exception("Balance is less than amount sent");
                     }
                     $stmt->execute();
