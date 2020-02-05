@@ -1,0 +1,14 @@
+body {
+    background-color: #07184C;
+    color: yellow;
+}
+img {
+    margin: 10% 10% 10% 10%;
+}
+.mrg-btm {
+    margin-bottom: 5%;
+}
+.transaction {
+    background-color: #0a298a;
+    border-color: #0a298a !important;
+}

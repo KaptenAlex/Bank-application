@@ -7,21 +7,36 @@ header("Access-Control-Allow-Origin: *");
 
 <head>
     <meta charset="utf-8">
-    <title>Bank application</title>
+    <title>Sveriges Riksbank</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
 
 <div class="container">
-    <h1 class="text-center display-3">Bank application</h1>
-<div class="row">
-    <div class="col border border-dark">
-        <h1>Username: <span id="username"></span></h1>
-        <h1>Name: <span id="name"></span></h1>
-        <h1>Balance: <span id="balance"></span></h1>
+    <h1 class="text-center display-3">Sveriges Riksbank</h1>
+    <div class="text-center">
+        <img class="img-fluid" src="../styles/images/threecrowns.jpeg" alt="Three crowns">
+    </div>
+<div class="row mrg-btm">
+    <div class="col border border-dark rounded transaction">
+        <h1 class="text-center mrg-btm">Make a transfer</h1>
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center margin">Username</h1>
+                <h1 id="username" class="text-center mrg-btm"></h1>
+            </div>
+            <div class="col">
+                <h1 class="text-center">Name</h1>
+                <h1 id="name" class="text-center mrg-btm"></h1>
+            </div>
+            <div class="col">
+                <h1 class="text-center">Balance</h1>
+                <h1 id="balance" class="text-center mrg-btm"></h1>
+            </div>
+        </div>
 <div class="transfer">
-    <h1 class="text-center">Make a transfer</h1>
         <form id="transaction">
             <label hidden for="from_account"> From account</label>
             <input hidden id="userID" class="form-control" type="text" name="from_account" value="">
