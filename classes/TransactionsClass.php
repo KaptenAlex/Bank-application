@@ -11,37 +11,6 @@ class Transactions
     {
         $this->db = $mySQL->connect();
     }
-    public function getAllTransactions()
-    {
-        try {
-            $sql = "SELECT * FROM transactions";
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute();
-            $results = $stmt->fetchAll();
-            if ($results == false) {
-                throw new \Exception("Could not get all transactions.");
-            }
-            return $results;
-        } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
-        }
-    }
-    public function getTransaction($id)
-    {
-        try {
-            $sql = "SELECT * FROM transactions WHERE transaction_id = :id";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            $result = $stmt->fetch();
-            if ($result == false) {
-                throw new \Exception("Could not get transaction.");
-            }
-            return $result;
-        } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
-        }
-    }
     public function makeTransaction($data)
     {
         try {
