@@ -14,7 +14,7 @@ class Transactions
     public function makeTransaction($data)
     {
         try {
-            $sqlSender = "SELECT * FROM vw_users WHERE :from_account_id = account_id";
+            $sqlSender = "SELECT balance FROM vw_users WHERE :from_account_id = account_id";
             $statement = $this->db->prepare($sqlSender);
             $statement->bindParam(':from_account_id', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
             if (!($statement->execute())) {
@@ -29,7 +29,7 @@ class Transactions
                 if (!($statement->execute())) {
                     throw new \Exception("Couldn't find recipient");
                 } elseif ($statement->execute()) {
-                    $recipient = $statement->fetch();
+                    $statement->fetch();
                 }
                 try {
                     $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
