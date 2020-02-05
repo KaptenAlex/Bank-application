@@ -44,9 +44,6 @@ header("Access-Control-Allow-Origin: *");
             <label for="from_amount">Amount to transfer</label>
             <input class="form-control" type="number" name="from_amount" value="1">
             <br>
-            <label hidden for="to_amount">to amount</label>
-            <input hidden class="form-control" type="number" name="to_amount" value="1">
-            <br hidden>
             <label for="to_account">Recipient</label>
             <select id="users" class="form-control" name="to_account">
             </select>
