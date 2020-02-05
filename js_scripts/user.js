@@ -4,17 +4,17 @@ $(document).ready(function() {
         url: "http://localhost/Bank-application/api/getUser.php",
         type: 'GET',
         success: function(user) {
-            let parsedData = JSON.parse(user);
-            $("#username").text(parsedData.username);
-            $("#name").text(parsedData.firstName + " " + parsedData.lastName);
-            $("#balance").text(parsedData.balance);
-            $("#userID").val(parsedData.id);
+            let parsedUser = JSON.parse(user);
+            $("#username").text(parsedUser.username);
+            $("#name").text(parsedUser.firstName + " " + parsedUser.lastName);
+            $("#balance").text(parsedUser.balance);
+            $("#userID").val(parsedUser.account_id);
             $.ajax({
                 url: "http://localhost/Bank-application/api/getAllUsers.php",
                 type: 'GET',
                 success: function(users) {
-                    let parsedData = JSON.parse(users);
-                    $.each(parsedData, function(key, value) {
+                    let parsedUsers = JSON.parse(users);
+                    $.each(parsedUsers, function(key, value) {
                         $("#users").append("<option value=" + value.account_id +">"
                         + value.firstName +" " + value.lastName + "</option>");
                     });

@@ -14,7 +14,7 @@ class Users
     public function getAllUsers()
     {
         try {
-            $sql = "SELECT * FROM vw_users";
+            $sql = "SELECT account_id,firstName,lastName FROM vw_users";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
             $results = $stmt->fetchAll();
@@ -30,7 +30,7 @@ class Users
     public function getUser($id)
     {
         try {
-            $sql = "SELECT * FROM vw_users WHERE id = :id";
+            $sql = "SELECT account_id,username,firstName,lastName,balance FROM vw_users WHERE account_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
