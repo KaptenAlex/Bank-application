@@ -35,12 +35,11 @@ class Transactions
                     $sql = "INSERT INTO transactions(from_amount, from_account, from_currency,
                            to_amount, to_account, to_currency, currency_rate, date)
                            VALUES (:from_amount, :from_account, 'SEK',
-                           :to_amount, :to_account, 'SEK', :currency_rate, NOW())";
+                           :to_amount, :to_account, 'SEK', 1, NOW())";
                     $stmt = $this->db->prepare($sql);
                     $stmt->bindParam(':from_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
                     $stmt->bindParam(':from_account', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
                     $stmt->bindParam(':to_account', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
-                    $stmt->bindParam(':currency_rate', $data['currency_rate'], FILTER_SANITIZE_NUMBER_FLOAT);
                     $stmt->bindParam(':to_amount', $data['from_amount'], FILTER_SANITIZE_NUMBER_INT);
                     if ($data['from_amount'] <= 0) {
                         throw new \Exception("The amount sent is less or equal zero.");

@@ -38,12 +38,9 @@ header("Access-Control-Allow-Origin: *");
         </div>
 <div class="transfer">
         <form id="transaction">
-            <label hidden for="from_account"> From account</label>
+            <label hidden for="from_account">Account ID</label>
             <input hidden id="userID" class="form-control" type="text" name="from_account" value="">
             <br>
-            <label hidden for="currency_rate">Currency rate</label>
-            <input hidden class="form-control" type="number" name="currency_rate" value="1.000">
-            <br hidden>
             <label for="from_amount">Amount to transfer</label>
             <input class="form-control" type="number" name="from_amount" value="1">
             <br>
