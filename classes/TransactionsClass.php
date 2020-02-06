@@ -52,7 +52,7 @@ class Transactions
                         throw new \Exception("Balance is less than amount sent");
                     }
                     $stmt->execute();
-                    return "Successful";
+                    return "Transaction successful!";
                 } catch (\Exception $e) {
                     echo "Transaction failed: " . $e->getMessage();
                 }
