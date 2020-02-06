@@ -14,21 +14,23 @@ class Transactions
     public function makeTransaction($data)
     {
         try {
-            $sqlSender = "SELECT balance FROM vw_users WHERE :from_account_id = account_id";
-            $statement = $this->db->prepare($sqlSender);
-            $statement->bindParam(':from_account_id', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
-            if (!($statement->execute())) {
+            $sqlSender = "SELECT balance FROM vw_users WHERE account_id = :from_account_id";
+            $statementBalance = $this->db->prepare($sqlSender);
+            $statementBalance->bindParam(':from_account_id', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
+            $statementBalance->execute();
+            if (!($statementBalance->fetch())) {
                 throw new \Exception("Sender doesn't have an account.");
-            } elseif ($statement->execute()) {
-                $sender = $statement->fetch();
+            } elseif ($statementBalance->fetch()) {
+                $sender = $statementBalance->fetch();
             }
             try {
-                $sqlRecipient = "SELECT * FROM users WHERE :to_account_id = id";
+                $sqlRecipient = "SELECT * FROM account WHERE user_id = :to_account_id";
                 $statement = $this->db->prepare($sqlRecipient);
                 $statement->bindParam(':to_account_id', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
-                if (!($statement->execute())) {
-                    throw new \Exception("Couldn't find recipient");
-                } elseif ($statement->execute()) {
+                $statement->execute();
+                if (!($statement->fetch())) {
+                    throw new \Exception("Couldn't find recipient account");
+                } else {
                     $statement->fetch();
                 }
                 try {
