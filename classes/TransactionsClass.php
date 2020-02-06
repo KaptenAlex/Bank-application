@@ -18,19 +18,21 @@ class Transactions
             $statementBalance = $this->db->prepare($sqlSender);
             $statementBalance->bindParam(':from_account_id', $data['from_account'], FILTER_SANITIZE_NUMBER_INT);
             $statementBalance->execute();
-            if (!($statementBalance->fetch())) {
+            $sender = $statementBalance->fetch();
+            if (!($sender)) {
                 throw new \Exception("Sender doesn't have an account.");
-            } elseif ($statementBalance->fetch()) {
-                $sender = $statementBalance->fetch();
+            } elseif ($sender) {
+                $statementBalance->fetch();
             }
             try {
                 $sqlRecipient = "SELECT * FROM account WHERE user_id = :to_account_id";
                 $statement = $this->db->prepare($sqlRecipient);
                 $statement->bindParam(':to_account_id', $data['to_account'], FILTER_SANITIZE_NUMBER_INT);
                 $statement->execute();
-                if (!($statement->fetch())) {
+                $recipient = $statement->fetch();
+                if (!($recipient)) {
                     throw new \Exception("Couldn't find recipient account");
-                } else {
+                } elseif ($recipient) {
                     $statement->fetch();
                 }
                 try {
