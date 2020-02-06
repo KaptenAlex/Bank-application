@@ -28,7 +28,7 @@ class MySQL
         $this->password = $password ?? getenv('DB_PASSWORD');
         $this->dbname = $dbname ?? getenv('DB_NAME');
         $this->port = $port ?? getenv('DB_PORT');
-        $this->charset = 'utf8mb4';
+        $this->charset = $charset ?? getenv('DB_CHARSET');
     }
 
     /*
