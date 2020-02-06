@@ -43,6 +43,7 @@ header("Access-Control-Allow-Origin: *");
             <br>
             <label for="from_amount">Amount to transfer</label>
             <input class="form-control" type="number" name="from_amount" value="1">
+            <label id="messages"></label>
             <br>
             <label for="to_account">Recipient</label>
             <select id="users" class="form-control" name="to_account">
