@@ -57,10 +57,10 @@ class Transactions
                     echo "Transaction failed: " . $e->getMessage();
                 }
             } catch (\Exception $e) {
-                echo "Error: " . $e->getMessage();
+                echo "Transaction failed: " . $e->getMessage();
             }
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo "Transaction failed: " . $e->getMessage();
         }
     }
 }
